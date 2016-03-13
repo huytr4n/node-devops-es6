@@ -1,4 +1,6 @@
 'use strict';
+import fs from 'fs';
+import path from 'path';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
 import morgan from 'morgan';
@@ -6,9 +8,6 @@ import logger from './utils/logger';
 
 import DatabaseManager from './platform';
 import Router from './utils/router';
-
-import ProductController from './controllers/products';
-
 
 class Server {
     constructor(app, opts) {
@@ -26,8 +25,21 @@ class Server {
     }
 
     initControllers() {
+        let self = this;
+
+        // init database first
         this.initDatabase();
-        this.controllers.products = new ProductController(this.instances);
+
+        // read all controller files in their directory
+        let controllers = fs.readdirSync(path.join(__dirname, 'controllers'));
+
+        // register controllers
+        controllers.map(controller => {
+            let controllerPath = './controllers/' + path.basename(controller, '.js');
+            let ControllerClass = require(controllerPath);
+
+            self.controllers[controller] = new ControllerClass(self.instances);
+        });
     }
 
     initDatabase() {

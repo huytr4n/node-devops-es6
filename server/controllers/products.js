@@ -8,4 +8,4 @@ class ProductController extends BaseController {
     }
 }
 
-export default ProductController;
+module.exports = ProductController;
