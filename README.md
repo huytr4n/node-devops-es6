@@ -24,8 +24,9 @@ Redux
 
     npm start
 
-web: (http://localhost:3000/)[]
-api: (http://localhost:3000/api/:controller/:action)
+web: [http://localhost:3000/]()
+
+api: [http://localhost:3000/api/:controller/:action]()
 
 ## Troubleshooting
 
