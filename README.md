@@ -4,19 +4,14 @@
 
 Server:
 
-Node.js
-
-Express.js
-
-JFS (for static database)
-
-ES6
+- [x] [Node.js](https://www.nodejs.org)
+- [x] [Express.js](https://www.expressjs.com)
+- [x] [JFS](https://www.npmjs.com/package/jfs)
+- [x] [ES6](https://github.com/lukehoban/es6features)
 
 Client:
 
-React
-
-Redux
+- [x] [React](https://facebook.github.io/react/)
 
 ## How to run
 
