@@ -2,8 +2,9 @@
 
 import express from 'express';
 import Server from './server';
+import config from './config';
 
-const port = process.env.PORT || 3000;
+const port = config.get('dashboard:port');
 
 const app = express();
 
